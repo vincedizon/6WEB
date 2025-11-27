@@ -1,0 +1,60 @@
+
+/* --- Global Reset for the Nav --- */
+.navbar {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f8f9fa; /* Lighter background color, e.g., a very light grey */
+    color: #343a40; /* Darker text for contrast on light background */
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #e9ecef; /* Subtle border at the bottom */
+}
+
+.navbar .logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 400; /* Slightly bolder for visibility */
+    color: #343a40; /* Ensure logo text is dark */
+}
+
+/* --- List Styling --- */
+.navbar nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin-left: 20px;
+}
+
+/* --- Link Styling --- */
+.navbar nav ul li a {
+    color: #495057; /* Dark grey for normal links */
+    text-decoration: none;
+    padding: 15px 10px;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: 500;
+}
+
+/* Hover effect */
+.navbar nav ul li a:hover {
+    background-color: #e2e6ea; /* A slightly darker shade of grey on hover */
+    color: #212529; /* Darker text on hover */
+}
+
+/* Active Link Styling (using routerLinkActive="active") */
+.navbar nav ul li a.active {
+    background-color: #007bff; /* Primary blue color remains for active link */
+    color: white; /* White text on blue active background */
+    border-radius: 4px;
+}
+
+/* --- Main Content Area (Optional) --- */
+main {
+    padding: 20px;
+}
