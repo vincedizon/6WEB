@@ -1,0 +1,100 @@
+<div class="container">
+  <header class="page-header">
+    <h1>Angular Directives</h1>
+  </header>
+
+  <div class="content-grid">
+
+    <section class="card">
+      <h2>Static Conditional</h2>
+      <div class="card-body">
+        @if(isStaticNoteVisible) {
+          <div class="alert alert-success">
+            This is a static note with true value!
+          </div>
+        } @else {
+          <div class="alert alert-secondary">
+            This static note has false value.
+          </div>
+        }
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Dynamic Control</h2>
+      <div class="card-body">
+        <div class="status-box">
+            @if(isNoteVisible) {
+              <p class="note-text"> This is a note! </p>
+            }
+        </div>
+        <div class="button-group">
+          <button (click)="showNote()" class="btn-primary">Show Note</button>
+          <button (click)="hideNote()" class="btn-secondary">Hide Note</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Input Matching</h2>
+      <div class="card-body">
+        <p class="small-text">Current Static Value: <span class="badge">{{monthNameStatic}}</span></p>
+
+        <div class="input-and-result-area">
+          <input type="text" [(ngModel)]="monthNameDynamic" placeholder="Try: Jan, Feb, or Mar..." class="form-input">
+
+          <div class="result-area">
+            @switch (monthNameDynamic) {
+              @case ('Jan') { <p class="result-text result-text-jan">Result: January</p> }
+              @case ('Feb') { <p class="result-text result-text-feb">Result: February</p> }
+              @case ('Mar') { <p class="result-text result-text-mar">Result: March</p> }
+              @default { <p class="error-text">Result: Wrong input!</p> }
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>List Rendering</h2>
+      <div class="card-body">
+        <ul class="styled-list">
+          @for (item of cityList; track $index) {
+            <li>{{item}}</li>
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section class="card full-width">
+      <h2>Table Data & Status</h2>
+      <div class="card-body">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Course</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of studentList; track $index) {
+              <tr>
+                <td>{{$index+1}}</td>
+                <td>{{item.stud_name}}</td>
+                <td>{{item.course}}</td>
+                <td>
+                  <span class="status-badge" [class.status-active]="item.isActive" [class.status-inactive]="!item.isActive">
+                    {{ item.isActive ? 'Active' : 'Inactive' }}
+                  </span>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+</div>

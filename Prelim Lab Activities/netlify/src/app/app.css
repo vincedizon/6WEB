@@ -1,0 +1,60 @@
+
+.navbar {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #e9ecef;
+}
+
+.navbar .logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 400;
+    color: #343a40;
+}
+
+/* --- List Styling --- */
+.navbar nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin-left: 20px;
+}
+
+
+.navbar nav ul li a {
+    color: #495057;
+    text-decoration: none;
+    padding: 15px 10px;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: 500;
+}
+
+/* Hover effect */
+.navbar nav ul li a:hover {
+    background-color: #e2e6ea;
+    color: #212529;
+}
+
+
+.navbar nav ul li a.active {
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+}
+
+
+main {
+    padding: 20px;
+
+}

@@ -1,0 +1,18 @@
+h2 {
+  color: darkblue;
+  margin-top: 20px;
+}
+
+.active {
+  font-weight: bold;
+  color: green;
+}
+
+.inactive {
+  color: gray;
+}
+
+img {
+  margin: 10px 0;
+  border: 2px solid black;
+}
