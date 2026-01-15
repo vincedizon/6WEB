@@ -1,0 +1,58 @@
+<div class="glass-viewport">
+  <div class="glass-main">
+
+    <header class="glass-header">
+      <div class="title-group">
+        <h1>{{ dashboardTitle | titlecase }}</h1>
+        <p class="date-stamp">{{ lastRefresh | date:'fullDate' }}</p>
+      </div>
+      <div class="live-clock">
+        <span class="pulse"></span>
+        {{ time$ | async | date:'h:mm:ss a' }}
+      </div>
+    </header>
+
+    <div class="grid-layout">
+      <div class="glass-card">
+        <span class="label">Total Asset Value</span>
+        <h2 class="neon-text">{{ accountValue | currency:'USD':'symbol':'1.2-2' }}</h2>
+        <div class="growth-tag">
+          Yield: {{ yieldRate | percent:'1.1-2' }}
+        </div>
+      </div>
+
+      <div class="glass-card">
+        <span class="label">Active Network Nodes</span>
+        <div class="node-pills">
+          <span class="pill" *ngFor="let node of nodes | slice:0:3">
+            {{ node }}
+          </span>
+          <span class="pill-more">+{{ nodes.length - 3 }}</span>
+        </div>
+      </div>
+
+      <div class="glass-card wide">
+        <span class="label">Encryption Integrity & System Logs</span>
+        <div class="status-grid">
+          <div class="status-cell">
+            <small>Uplink</small>
+            <p>{{ networkDetails.location }}</p>
+          </div>
+          <div class="status-cell">
+            <small>Security</small>
+            <p>{{ networkDetails.mode | titlecase }}</p>
+          </div>
+          <div class="status-cell">
+            <small>Precision</small>
+            <p>{{ networkDetails.integrity | number:'1.1-4' }}</p>
+          </div>
+          <div class="status-cell">
+            <small>Latency</small>
+            <p class="neon-green">{{ networkDetails.ping }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
