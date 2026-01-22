@@ -1,0 +1,44 @@
+<div style="padding: 20px; font-family: Arial, sans-serif;">
+  <h1 style="color: #2c3e50; margin-bottom: 5px;">Maverick Vince G. Dizon</h1>
+  <h1>{{ title() }}</h1>
+
+  <h2>User Directory (First 5)</h2>
+  <table border="1" style="width: 100%; border-collapse: collapse; margin-bottom: 30px;">
+    <thead>
+      <tr style="background-color: #f2f2f2;">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+  @for (user of httpusers; track user.id) {
+    <tr>
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+    </tr>
+  }
+</tbody>
+  </table>
+
+  <h2>Recent Posts (Another Source - Top 5)</h2>
+  <table border="1" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr style="background-color: #e2e2e2;">
+        <th>ID</th>
+        <th>Title</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (post of httpposts; track post.id) {
+        <tr>
+          <td>{{ post.id }}</td>
+          <td>{{ post.title }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
