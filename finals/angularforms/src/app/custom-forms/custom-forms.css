@@ -1,0 +1,223 @@
+/* 1. Layout & Container */
+.dashboard-container {
+  padding: 3rem 1rem;
+  min-height: 100vh;
+  background-color: #f1f5f9; /* Soft blue-grey background */
+  display: flex;
+  justify-content: center;
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr; /* Form takes slightly more space */
+  gap: 2.5rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* 2. The Form Card (Surface) */
+.form-surface {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.form-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 2rem;
+  border-left: 5px solid #2563eb;
+  padding-left: 1rem;
+}
+
+/* 3. Input Styling */
+.field-group {
+  margin-bottom: 1.25rem;
+}
+
+label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background: #f8fafc;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+/* 4. Layout Helpers */
+.horizontal-row {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.flex-2 { flex: 2; }
+.flex-1 { flex: 1; }
+
+/* 5. Radio Buttons & Department Grid */
+.radio-alignment-wrapper {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.5rem 0;
+}
+
+.department-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f8fafc;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+}
+
+.radio-label {
+  font-size: 0.85rem !important;
+  color: #1e293b !important;
+  text-transform: none !important;
+  margin: 0 !important;
+}
+
+/* 6. The Preview Card (Reflection Area) */
+.reflection-area {
+  position: sticky;
+  top: 2rem;
+}
+
+.profile-preview-card {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: #f8fafc;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+.preview-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.avatar-ring {
+  width: 56px;
+  height: 56px;
+  background: #2563eb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.status-tag {
+  font-size: 0.65rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.5rem;
+  color: #94a3b8;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.data-point span {
+  font-size: 0.6rem;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.data-point p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* 7. Validation & Buttons */
+.invalid-border {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 1rem;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 8. Success Toast */
+.success-toast {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: #10b981;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  z-index: 1000;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.animate-bounce-in {
+  animation: bounceIn 0.5s ease;
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+}

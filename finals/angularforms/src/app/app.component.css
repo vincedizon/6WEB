@@ -1,0 +1,18 @@
+/* In app.component.css */
+.navbar {
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Stronger shadow for depth */
+}
+
+.navbar-brand {
+  color: #0f172a !important; /* Dark brand text */
+}
+
+.nav-link {
+  color: #475569 !important;
+}
+
+.active-link {
+  color: #2563eb !important; /* Vibrant blue for active state */
+  border-bottom: 3px solid #2563eb;
+}

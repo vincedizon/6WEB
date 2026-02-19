@@ -1,0 +1,107 @@
+<div class="dashboard-container">
+  <div *ngIf="showNotification" class="success-toast animate-bounce-in">
+    <div class="toast-content">
+      <span class="icon">✓</span>
+      <p>Account Created Successfully!</p>
+    </div>
+  </div>
+
+  <div class="main-layout">
+    <div class="form-surface">
+      <h2 class="form-title">Submit Application</h2>
+
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+
+              <div class="field-group">
+          <label>NAME</label>
+          <input type="text" formControlName="username" 
+                [class.invalid-border]="f['username'].invalid && f['username'].touched">
+          <span class="warning-text" *ngIf="f['username'].errors?.['minlength'] && f['username'].touched">
+            Name must be at least 4 characters.
+          </span>
+        </div>
+
+        <div class="field-group">
+          <label>PASSWORD</label>
+          <input type="password" formControlName="password" placeholder="••••••••"
+                 [class.invalid-border]="f['password'].invalid && f['password'].touched">
+            <span class="warning-text" *ngIf="f['password'].errors?.['minlength'] && f['password'].touched">
+            Password must be at least 8 characters.
+          </span>
+        </div>
+
+        <div class="horizontal-row">
+          <div class="field-group flex-2">
+            <label>EMAIL</label>
+            <input type="email" formControlName="email" placeholder="name@company.com">
+          </div>
+          <div class="field-group flex-1">
+            <label>PHONE</label>
+            <input type="text" formControlName="phone" placeholder="09XX-XXX-XXXX">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>DEPARTMENT</label>
+          <div class="radio-alignment-wrapper department-grid">
+            <div class="radio-option" *ngFor="let d of ['IT', 'HR', 'Finance', 'Marketing']">
+              <input type="radio" [id]="d" formControlName="department" [value]="d">
+              <label [for]="d" class="radio-label">{{d}}</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="horizontal-row">
+          <div class="field-group flex-1">
+            <label>JOINING DATE</label>
+            <input type="date" formControlName="joinDate">
+          </div>
+          <div class="field-group flex-1">
+            <label>GENDER</label>
+            <div class="radio-alignment-wrapper">
+              <input type="radio" id="rm" formControlName="gender" value="Male"> <label for="rm" class="radio-label">M</label>
+              <input type="radio" id="rf" formControlName="gender" value="Female"> <label for="rf" class="radio-label">F</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>STATUS</label>
+          <div class="radio-alignment-wrapper">
+            <input type="radio" id="rp" formControlName="status" value="Permanent"> <label for="rp" class="radio-label">Permanent</label>
+            <input type="radio" id="rb" formControlName="status" value="Probationary"> <label for="rb" class="radio-label">Probationary</label>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>COMMENTS</label>
+          <textarea formControlName="comments" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary" [disabled]="registrationForm.invalid">
+          CONFIRM & SUBMIT
+        </button>
+      </form>
+    </div>
+
+    <div class="reflection-area">
+      <div *ngIf="submittedData" class="profile-preview-card animate-slide-up">
+        <div class="preview-header">
+          <div class="avatar-ring">{{ submittedData.username[0] | uppercase }}</div>
+          <div>
+            <h3>{{ submittedData.username }}</h3>
+            <span class="status-tag">{{ submittedData.department }} Dept</span>
+          </div>
+        </div>
+        <div class="preview-grid">
+          <div class="data-point"><span>Phone</span><p>{{ submittedData.phone }}</p></div>
+          <div class="data-point"><span>Joined</span><p>{{ submittedData.joinDate }}</p></div>
+          <div class="data-point full-width">
+            <span>Context</span>
+            <p class="comment-display">{{ submittedData.comments || 'No notes.' }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
