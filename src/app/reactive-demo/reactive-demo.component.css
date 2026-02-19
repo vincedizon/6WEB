@@ -1,0 +1,185 @@
+/* 1. Layout Architecture */
+.dashboard-container {
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 550px 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  width: 100%;
+  align-items: start;
+}
+
+/* 2. Action Column (Form Card) */
+.form-surface {
+  background: #ffffff;
+  padding: 3rem;
+  border-radius: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  color: #1e293b;
+  z-index: 10;
+  position: relative;
+}
+
+.form-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0.5rem 0 2.5rem 0;
+  color: #0f172a;
+}
+
+/* 3. Typography & Inputs */
+label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 1.1rem;
+  border-radius: 0.8rem;
+  border: 2px solid #f1f5f9;
+  background: #f8fafc;
+  color: #1e293b;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #2563eb;
+  outline: none;
+  background: #fff;
+}
+
+/* 4. Horizontal Logic & Radios */
+.horizontal-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.flex-2 { flex: 2; }
+.flex-1 { flex: 1; }
+
+.radio-alignment-wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  min-height: 50px;
+  margin-top: 0.5rem;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.radio-label {
+  color: #334155 !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  text-transform: none !important;
+  margin: 0 !important;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #2563eb;
+}
+
+/* 5. Validation & Warnings */
+.warning-text {
+  color: #d32f2f;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 5px;
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.invalid-border {
+  border: 1.5px solid #d32f2f !important;
+  background-color: #fff8f8 !important;
+}
+
+/* 6. Intelligence Column (Reflection Area) */
+.profile-preview-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2.5rem;
+  border-radius: 2rem;
+  color: white;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.full-width {
+  grid-column: span 2;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.comment-display {
+  font-style: italic;
+  color: #94a3b8;
+  line-height: 1.4;
+  margin-top: 0.5rem;
+}
+
+/* 7. Buttons & Utilities */
+.btn-primary {
+  width: 100%;
+  background: linear-gradient(to right, #2563eb, #3b82f6);
+  color: white;
+  border: none;
+  padding: 1.3rem;
+  border-radius: 1rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-top: 2rem;
+  box-shadow: 0 15px 30px rgba(37, 99, 235, 0.4);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.main-layout {
+  display: grid;
+  grid-template-columns: 550px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.reflection-area {
+  min-height: 400px;
+}

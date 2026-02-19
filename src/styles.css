@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+:root {
+  --primary: #2563eb;
+  --bg-dark: #020617;
+  --surface-white: #ffffff;
+  --text-muted: #64748b;
+}
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: radial-gradient(circle at top right, #1e293b, #020617);
+  background-attachment: fixed;
+  color: #f8fafc;
+}
+
+/* Floating Frosted Navbar */
+.navbar {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  margin: 1.5rem 2.5rem;
+  border-radius: 1.25rem;
+  padding: 0.8rem 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand { font-weight: 800; color: var(--bg-dark) !important; }
+.active-link { color: var(--primary) !important; border-bottom: 3px solid var(--primary); }

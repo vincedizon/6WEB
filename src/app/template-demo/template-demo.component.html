@@ -1,0 +1,88 @@
+<div class="dashboard-container">
+
+  <div *ngIf="showNotification" class="success-toast animate-bounce-in">
+    <div class="toast-content">
+      <span class="icon">✓</span>
+      <p>Application Submitted Successfully!</p>
+    </div>
+  </div>
+
+  <div class="single-layout">
+    <div class="form-surface">
+      <h2 class="form-title">Submit Application</h2>
+
+      <form #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm)">
+
+        <div class="field-group">
+          <label>LEGAL NAME</label>
+          <input type="text" name="username" [(ngModel)]="user.username" required #uName="ngModel"
+                 placeholder="e.g. John Doe" [class.invalid-border]="uName.invalid && uName.touched">
+        </div>
+
+        <div class="horizontal-row">
+          <div class="field-group flex-2">
+            <label>EMAIL INTELLIGENCE</label>
+            <input type="email" name="email" [(ngModel)]="user.email" required email placeholder="name@company.com">
+          </div>
+          <div class="field-group flex-1">
+            <label>PHONE NUMBER</label>
+            <input type="text" name="phone" [(ngModel)]="user.phone" required placeholder="09XX-XXX-XXXX">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>DEPARTMENT SELECTION</label>
+          <div class="radio-alignment-wrapper department-grid">
+            <div class="radio-option" *ngFor="let dept of ['IT', 'HR', 'Finance', 'Marketing']">
+              <input type="radio" [id]="'t'+dept" name="department" [(ngModel)]="user.department" [value]="dept" required>
+              <label [for]="'t'+dept" class="radio-label">{{dept}}</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="horizontal-row">
+          <div class="field-group flex-1">
+            <label>GENDER</label>
+            <div class="radio-alignment-wrapper">
+              <div class="radio-option">
+                <input type="radio" id="tm" name="gender" [(ngModel)]="user.gender" value="M" required>
+                <label for="tm" class="radio-label">M</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="tf" name="gender" [(ngModel)]="user.gender" value="F">
+                <label for="tf" class="radio-label">F</label>
+              </div>
+            </div>
+          </div>
+          <div class="field-group flex-1">
+            <label>DATE OF JOINING</label>
+            <input type="date" name="joinDate" [(ngModel)]="user.joinDate" required>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>EMPLOYMENT STATUS</label>
+          <div class="radio-alignment-wrapper">
+            <div class="radio-option">
+              <input type="radio" id="tperm" name="status" [(ngModel)]="user.status" value="Permanent" required>
+              <label for="tperm" class="radio-label">Permanent</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="tprob" name="status" [(ngModel)]="user.status" value="Probationary">
+              <label for="tprob" class="radio-label">Probationary</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>STRATEGIC CONTEXT</label>
+          <textarea name="comments" [(ngModel)]="user.comments" rows="3" placeholder="Additional notes..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary" [disabled]="registrationForm.invalid">
+          CONFIRM & SUBMIT
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
